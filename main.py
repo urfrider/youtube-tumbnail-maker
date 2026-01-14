@@ -162,7 +162,6 @@ def human_feedback(state: State):
     user_feedback = answer["user_feedback"]
     chosen_prompt = answer["chosen_prompt"]
 
-    print("human_feedback: ", user_feedback, chosen_prompt)
     return {
         "user_feedback": user_feedback,
         "chosen_prompt": state["thumbnail_prompts"][chosen_prompt - 1],
@@ -172,8 +171,6 @@ def human_feedback(state: State):
 def generate_hd_thumbnail(state: State):
     chosen_prompt = state["chosen_prompt"]
     user_feedback = state["user_feedback"]
-
-    print("generate_hd_thumbnail: ", user_feedback, chosen_prompt)
 
     prompt = f"""
     You are a professional YouTube thumbnail designer. Take this original thumbnail prompt and create an enhanced version that incorporates the user's specific feedback.
