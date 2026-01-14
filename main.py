@@ -155,16 +155,14 @@ def generate_thumbnails(args):
 def human_feedback(state: State):
     answer = interrupt(
         {
-            "chosen_thumbnail": "Which thumbnail do you like the most?",
-            "feedback": "Provide any feedback or changes you'd like for the final thumbnail.",
+            "chosen_prompt": "Which thumbnail do you like the most?",
+            "user_feedback": "Provide any feedback or changes you'd like for the final thumbnail.",
         }
     )
-    user_feedback = answer["user_feedback"]
-    chosen_prompt = answer["chosen_prompt"]
 
     return {
-        "user_feedback": user_feedback,
-        "chosen_prompt": state["thumbnail_prompts"][chosen_prompt - 1],
+        "user_feedback": answer["user_feedback"],
+        "chosen_prompt": state["thumbnail_prompts"][answer["chosen_prompt"] - 1],
     }
 
 
